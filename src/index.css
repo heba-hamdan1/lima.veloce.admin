@@ -1,17 +1,23 @@
-/* استيراد القواعد الأساسية لـ Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* تخصيص الطبقات */
-@layer utilities {
-  .bg-background-color {
-    background-color: #FDFDFD; /* الأبيض الهادئ */
-  }
-  .text-text-color {
-    color: #4B5563; /* الرمادي للنص */
-  }
-  .text-text-color-light {
-    color: #9CA3AF; /* الرمادي الفاتح للنصوص الثانوية */
-  }
+body {
+  @apply bg-gray-100 text-gray-800 font-sans;
+}
+
+table {
+  @apply w-full border-collapse;
+}
+
+th, td {
+  @apply border p-2 text-center;
+}
+
+th {
+  @apply bg-blue-500 text-white;
+}
+
+td {
+  @apply bg-white;
 }
