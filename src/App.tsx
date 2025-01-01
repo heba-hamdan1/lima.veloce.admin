@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Reports from "./pages/Reports";
@@ -112,9 +113,9 @@ const App: React.FC = () => {
         {/* المحتوى الرئيسي */}
         <main className="flex-1 p-4">
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard language="en"/>} />
             <Route path="/reports" element={<Reports />} />
-            <Route path="/login" element={<Login />} />  {/* ربط صفحة تسجيل الدخول */}
+
             <Route path="/purchases-sales-report" element={<PurchasesSalesReport />} />
             <Route path="/companies" element={<Companies />} />
             {/* باقي المسارات الأخرى */}
@@ -125,4 +126,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App;            <Route path="/login" element={<Login />} />  /* ربط صفحة تسجيل الدخول */
