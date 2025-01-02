@@ -1,6 +1,7 @@
 // setupTests.ts
 import '@testing-library/jest-dom/extend-expect'; // لتوسيع توقعات Jest
 import { configure } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
 // تكوين إعدادات @testing-library/react إذا لزم الأمر
 configure({ testIdAttribute: 'data-testid' });

@@ -24,10 +24,56 @@ import BranchPrices from "./pages/BranchPrices";
 
 // App component
 const App: React.FC = () => {
-  const [language, setLanguage] = useState("ar"); // حالة اللغة الحالية
+  
 
+  type Translations = {
+    en: {
+      dashboard: string;
+      reports: string;
+      login: string;
+      purchasesSalesReport: string;
+      companies: string;
+      branches: string;
+      users: string;
+      categories: string;
+      subcategories: string;
+      pos: string;
+      stores: string;
+      units: string;
+      tax: string;
+      items: string;
+      customers: string;
+      suppliers: string;
+      scales: string;
+      singleUse: string;
+      branchCategories: string;
+      branchPrices: string;
+    };
+    ar: {
+      dashboard: string;
+      reports: string;
+      login: string;
+      purchasesSalesReport: string;
+      companies: string;
+      branches: string;
+      users: string;
+      categories: string;
+      subcategories: string;
+      pos: string;
+      stores: string;
+      units: string;
+      tax: string;
+      items: string;
+      customers: string;
+      suppliers: string;
+      scales: string;
+      singleUse: string;
+      branchCategories: string;
+      branchPrices: string;
+    };
+  };
   // ترجمة النصوص لكل لغة
-  const translations = {
+  const translations:Translations = {
     en: {
       dashboard: "Dashboard",
       reports: "Reports",
@@ -73,30 +119,32 @@ const App: React.FC = () => {
       branchPrices: "أسعار الفروع",
     },
   };
+  const [language, setLanguage] = useState<keyof Translations>("ar"); // حالة اللغة الحالية
 
   // اختيار النصوص بناءً على اللغة
-  const t = translations[language];
+  const currentLanguage: keyof Translations = language;
+
 
   return (
     <Router>
       <div className="flex">
         {/* القائمة الجانبية */}
         <nav className="w-64 bg-gray-800 text-white h-screen p-4">
-          <h1 className="text-xl font-bold mb-6 text-center">{t.dashboard}</h1>
+          <h1 className="text-xl font-bold mb-6 text-center">{translations[language].dashboard}</h1>
           <ul>
             <li className="mb-4">
               <Link to="/dashboard" className="text-white hover:text-blue-500">
-                {t.dashboard}
+                {translations[language].dashboard}
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/reports" className="text-white hover:text-blue-500">
-                {t.reports}
+                {translations[language].reports}
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/login" className="text-white hover:text-blue-500">
-                {t.login}
+                {translations[language].login}
               </Link>
             </li>
             {/* إضافة باقي الروابط هنا */}

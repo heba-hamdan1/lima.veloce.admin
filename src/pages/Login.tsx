@@ -2,7 +2,21 @@
 import React, { useState } from "react";
 
 const Login: React.FC = () => {
-  const [language, setLanguage] = useState("ar");
+
+  type Translations = {
+    en: {
+      title: string;
+      username:  string;
+      password:  string;
+      login: string;
+    },
+    ar: {
+      title: string;
+      username:  string;
+      password: string;
+      login: string;
+    },
+  };
 
   const translations = {
     en: {
@@ -19,30 +33,34 @@ const Login: React.FC = () => {
     },
   };
 
-  const t = translations[language];
+  const [language, setLanguage] = useState<keyof Translations>("ar");
+
+
+
+  //const t = translations[language];
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-6 rounded shadow-md w-96">
-        <h1 className="text-2xl font-bold mb-4">{t.title}</h1>
+        <h1 className="text-2xl font-bold mb-4">{translations[language].title}</h1>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">{t.username}</label>
+          <label className="block text-sm font-medium mb-1">{translations[language].username}</label>
           <input
             type="text"
             className="w-full p-2 border rounded"
-            placeholder={t.username}
+            placeholder={translations[language].username}
           />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">{t.password}</label>
+          <label className="block text-sm font-medium mb-1">{translations[language].password}</label>
           <input
             type="password"
             className="w-full p-2 border rounded"
-            placeholder={t.password}
+            placeholder={translations[language].password}
           />
         </div>
         <button className="w-full bg-blue-500 text-white py-2 rounded">
-          {t.login}
+          {translations[language].login}
         </button>
         <div className="mt-4 text-center">
           <button
